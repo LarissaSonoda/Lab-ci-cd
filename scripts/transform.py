@@ -13,6 +13,6 @@ for f in os.listdir(inp):
     df.columns = [c.strip().lower().replace(" ", "_") for c in df.columns]
  # Exemplo opcional: selecionar colunas de interesse para a camada client
     df_client = df[['order_id','amount']] if set(['order_id','amount']).issubset(df.columns) else df.copy()
- # Salvar versões
+ # Salvar versõess
     df.to_csv(os.path.join(outp, f"trusted_{f}"), index=False)
     df_client.to_csv(os.path.join(outp, f"client_{f}"), index=False)
