@@ -20,6 +20,11 @@ jobs:
                 aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                 aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
                 aws-region: ${{ secrets.AWS_REGION }}
+            - name: Verificar arquivos CSV locais
+              run: |
+                echo "Listando arquivos em ./data/"
+                ls -la ./data/
+                aws s3 ls s3://${{ secrets.S3_BUCKET_NAME }}/raw/
 
             - name: Upload original para RAW
               run: |
